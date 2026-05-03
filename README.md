@@ -55,7 +55,3 @@ Before every move, the agent **ASKS** the KB if a target cell is safe (Prove $\n
 
 ---
 
-
-### **LinkedIn Post Reference**
-Watch the agent's reasoning process in action on my LinkedIn:  
-**[PASTE YOUR LINKEDIN POST URL HERE]**
