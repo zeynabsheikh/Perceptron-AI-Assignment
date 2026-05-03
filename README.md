@@ -1,62 +1,61 @@
-# 🧠 Single Layer Perceptron Implementation
+# 🕵️‍♂️ Dynamic Wumpus Logic Agent (Web App)
 
 ## 📌 Overview
-This project presents a complete implementation of a **single-layer perceptron** built from scratch using Python. The perceptron is one of the earliest and simplest machine learning models, designed to perform **binary classification** by learning a linear decision boundary.
+This project is a web-based **Knowledge-Based Agent** designed to navigate the classic "Wumpus World" environment. Unlike simple pathfinders, this agent utilizes **Propositional Logic** and an automated **Resolution Refutation** engine to deduce safe moves in a grid filled with hidden hazards.
 
-This implementation demonstrates how a perceptron learns from data through weight updates and bias adjustments.
+The application is built as a single-file web solution, integrating a complex logic parser, a reasoning engine, and a dynamic UI to visualize the agent's decision-making process in real-time.
 
 ---
 
-## 🎯 Objective
-The main objectives of this project are:
-- To understand the fundamentals of the perceptron algorithm
-- To implement the perceptron without using any machine learning libraries
-- To train the model on a simple logical dataset
-- To observe how weights and bias are updated during training
+## 🎯 Key Objectives
+*   **Dynamic Environment:** Support for user-defined grid dimensions and randomized hazard (Pits & Wumpus) placement.
+*   **Propositional Logic KB:** Maintaining a Knowledge Base that stores rules based on environmental percepts (Breezes & Stenches).
+*   **Inference Engine:** Implementing a Resolution Refutation algorithm to prove cell safety by converting logic to Conjunctive Normal Form (CNF).
+*   **Real-Time Visualization:** A professional dashboard tracking inference steps, active percepts, and agent logs.
 
 ---
 
 ## ⚙️ Technologies Used
-- **Python 3.12**
-- **NumPy**
-- **Visual Studio Code (VS Code)**
+*   **HTML5 & CSS3:** For a professional, responsive dashboard and grid visualization.
+*   **Vanilla JavaScript (ES6+):** Core logic for the Resolution Engine and Environment simulation.
+*   **Propositional Logic:** Used for formal representation of environmental constraints.
 
 ---
 
-## 🧩 Algorithm Explanation
-The perceptron follows these steps:
+## 🧠 Algorithmic Implementation
 
-1. Initialize weights and bias with zero values  
-2. Loop over the dataset for a fixed number of epochs  
-3. For each input:
-   - Compute linear output:  
-     `output = (weights ⋅ input) + bias`
-   - Apply activation function (step function)
-   - Calculate error:  
-     `error = actual - predicted`
-   - Update weights and bias:
-     ```
-     weights = weights + (learning_rate × error × input)
-     bias = bias + (learning_rate × error)
-     ```
-4. Repeat until the model learns the pattern
+### 1. The Knowledge Base (KB)
+The agent operates by **TELLING** the KB about its observations:
+*   **Breeze:** Implies a Pit is in an adjacent cell.
+*   **Stench:** Implies the Wumpus is in an adjacent cell.
+*   **Safety:** If no percept is found, the agent deduces that all adjacent cells are safe from that specific hazard.
+
+### 2. Resolution Refutation
+Before every move, the agent **ASKS** the KB if a target cell is safe (Prove $\neg Pit \land \neg Wumpus$). The engine:
+1.  Negates the query.
+2.  Converts the KB and negated query into **CNF**.
+3.  Resolves clauses to find a **contradiction (empty clause)**, confirming the cell's safety.
 
 ---
 
-## 📊 Dataset Used
-A simple **AND Gate dataset** is used for training:
-
-| Input 1 | Input 2 | Output |
-|--------|--------|--------|
-|   0    |   0    |   0    |
-|   0    |   1    |   0    |
-|   1    |   0    |   0    |
-|   1    |   1    |   1    |
+## 📊 Environment Specifications
+*   **Agent:** Represented by the gold icon.
+*   **Safe Cells:** Highlighted with a green border once logically proven.
+*   **Hazards:** Pits (●) and the Wumpus (▲) are revealed only if the agent enters their cell or the game halts.
 
 ---
 
-## 🧪 How to Run the Project
+## 🧪 How to Run
+1.  **Clone the Repo:**
+    ```bash
+    git clone [https://github.com/zeynabsheikh/Wumpus-Logic-Agent.git](https://github.com/zeynabsheikh/Wumpus-Logic-Agent.git)
+    ```
+2.  **Open the App:** Simply double-click `index.html` to run the application in any modern web browser.
+3.  **Interact:** Set the grid size, click **New Environment**, and use **Execute Inference Step** to watch the agent reason through the grid.
 
-### Step 1: Clone the Repository
-```bash
-git clone https://github.com/zeynabsheikh/Perceptron-AI-Assignment.git
+---
+
+
+### **LinkedIn Post Reference**
+Watch the agent's reasoning process in action on my LinkedIn:  
+**[PASTE YOUR LINKEDIN POST URL HERE]**
