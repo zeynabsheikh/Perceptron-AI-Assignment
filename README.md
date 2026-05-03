@@ -59,4 +59,4 @@ A simple **AND Gate dataset** is used for training:
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/your-username/Perceptron-AI-Assignment.git
+git clone https://github.com/zeynabsheikh/Perceptron-AI-Assignment.git
