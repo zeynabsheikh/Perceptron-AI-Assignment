@@ -1,64 +1,66 @@
 # 🕵️‍♂️ Dynamic Wumpus Logic Agent (Resolution Engine)
 
 ## 📌 Overview
-Ye project aik **Knowledge-Based Agent** hai jo classic "Wumpus World" environment mein navigate karta hai. Is project ki khususiyt ye hai ke ye sirf rasta nahi dhundta, balkay **Propositional Logic** aur **Resolution Refutation** engine ko use karte hue ye "deduce" karta hai ke agla qadam safe hai ya nahi.
+This project is a **Knowledge-Based Agent** designed to navigate the classic "Wumpus World" environment. The core strength of this agent lies in its ability to not just find a path, but to "deduce" the safety of its next move using **Propositional Logic** and a **Resolution Refutation** engine.
 
-Application ko Python aur **Tkinter** mein banaya gaya hai taake aik modern dashboard ke zariye agent ki reasoning, inference steps, aur environmental percepts ko real-time visualize kiya ja sakay.
+The application is built using Python and **Tkinter**, featuring a modern dashboard to visualize the agent's reasoning process, inference steps, and environmental percepts in real-time.
 
 ---
 
 ## 🎯 Key Objectives
-* **Logical Reasoning:** Agent environmental percepts (Breezes & Stenches) ko use kar ke rasta nikalta hai.
-* **Propositional Logic KB:** Aik dynamic Knowledge Base jo har move par rules ko **TELL** aur **ASK** functions ke zariye update karti hai.
-* **Automated Inference:** Resolution Refutation algorithm ka istemal kar ke cell safety ko mathematically prove karna.
-* **Real-Time Visualization:** Dashboard jo inference steps, current percepts aur agent ki movement ko track karta hai.
+* **Logical Reasoning:** The agent utilizes environmental percepts (Breezes & Stenches) to navigate the grid safely.
+* **Propositional Logic KB:** A dynamic Knowledge Base that updates rules via **TELL** and **ASK** functions during each move.
+* **Automated Inference:** Implementation of the Resolution Refutation algorithm to mathematically prove cell safety.
+* **Real-Time Visualization:** A professional dashboard tracking inference steps, current percepts, and agent movement.
 
 ---
 
 ## ⚙️ Technologies Used
 * **Python 3.x:** Core programming language.
-* **Tkinter:** Desktop GUI development ke liye.
-* **Propositional Logic:** Environmental constraints aur rules ki formal representation ke liye.
+* **Tkinter:** Used for Desktop GUI development.
+* **Propositional Logic:** For formal representation of environmental constraints and rules.
 
 ---
 
 ## 🧠 Algorithmic Implementation
 
 ### 1. The Knowledge Base (KB)
-Agent har cell par ja kar KB ko **TELL** karta hai:
-* **Breeze:** Agar Breeze mile, to KB deduce karti hai ke adjacent cells mein Pit ho sakta hai.
-* **Stench:** Agar Stench mile, to adjacent cells mein Wumpus ka khatra hota hai.
-* **Safety:** Jab agent kisi cell par hota hai, to wo confirm karta hai ke wo cell safe hai.
+At every cell, the agent **TELLS** the KB about its observations:
+* **Breeze:** If a Breeze is detected, the KB deduces that a Pit may exist in adjacent cells.
+* **Stench:** If a Stench is detected, it implies the Wumpus might be in an adjacent cell.
+* **Safety:** When an agent occupies a cell, it confirms that specific coordinate is safe.
 
 ### 2. Resolution Refutation
-Move karne se pehle agent KB se **ASK** karta hai (Prove: $\neg Pit \land \neg Wumpus$):
-1.  Query ko negate kiya jata hai.
-2.  KB aur negated query ko clauses mein convert kiya jata hai.
-3.  Engine pairs of clauses ko **resolve** kar ke contradiction dhundta hai. Agar empty clause mil jaye, to cell safe prove ho jata hai.
+Before moving, the agent **ASKS** the KB if a target cell is safe (Prove: $\neg Pit \land \neg Wumpus$):
+1.  The query is negated.
+2.  The KB and the negated query are converted into clauses (CNF).
+3.  The engine resolves pairs of clauses to find a **contradiction (empty clause)**. If found, the cell is logically proven safe.
 
 ---
 
 ## 📊 Environment Specifications
-* **Agent (🤖):** Grid mein navigate karne wala logic-based bot.
-* **Safe Cells (Green):** Wo cells jo logic ke zariye 100% safe prove ho chuke hain.
-* **Hazard Cells (Red):** Wo cells jahan logic ke mutabiq Pit ya Wumpus hone ka imkan hai.
-* **Gold (💰):** Agent ka main target jo grid mein kahin bhi hidden ho sakta hai.
+* **Agent (🤖):** A logic-based bot navigating the grid.
+* **Safe Cells (Green):** Cells that have been 100% logically proven safe.
+* **Hazard Cells (Red):** Cells where the logic indicates a potential Pit or Wumpus.
+* **Gold (💰):** The agent's primary objective, hidden within the grid.
 
 ---
 
 ## 🧪 How to Run
-1.  **Repository Clone Karein ya File Save Karein:**
-    Apne computer par `python.py` file save karein.
-2.  **Script Run Karein:**
-    Terminal ya CMD mein niche di gayi command likhen:
+1.  **Save the Script:**
+    Save the provided code as `python.py` in your project folder.
+2.  **Run the Application:**
+    Open your terminal or CMD and run:
     ```bash
     python python.py
     ```
-3.  **Interact:** * **Execute Logic & Find Gold** button par click karein.
-    * Agent automatically neighbors ko analyze karega aur safe cells ko **Green** mark karega.
-    * Jab agent Gold wale cell par pohanchega, to Victory message show hoga.
+3.  **Interact:** 
+    * Click the **"Step Logic & Find Gold"** button.
+    * Watch the agent analyze neighbors and mark safe cells in **Green**.
+    * A victory message will appear once the agent successfully reaches the **Gold**.
 
 ---
 
 ## 📝 Author
-**Zainab Noor** National University of Computer & Emerging Sciences (FAST-NUCES)
+**Zainab Noor**  
+National University of Computer & Emerging Sciences (FAST-NUCES)
