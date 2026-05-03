@@ -52,7 +52,7 @@ Before moving, the agent **ASKS** the KB if a target cell is safe (Prove: $\neg 
 2.  **Run the Application:**
     Open your terminal or CMD and run:
     ```bash
-    python python.py
+    python wumpus.py
     ```
 3.  **Interact:** 
     * Click the **"Step Logic & Find Gold"** button.
